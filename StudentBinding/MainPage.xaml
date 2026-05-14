@@ -1,66 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="StudentBinding.MainPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentBinding.MainPage">
+    
 
-            <!--  תמונת פרופיל  -->
-            <Image
-                Aspect="AspectFit"
-                HeightRequest="185"
-                SemanticProperties.Description="Student profile image"
-                Source="dotnet_bot.png" />
+    <VerticalStackLayout Padding="30"
+                         Spacing="20"
+                         VerticalOptions="Center"
+                        >
 
-            <!--  שם התלמיד  -->
-            <Label
-                FontAttributes="Bold"
-                FontSize="32"
+        <Image Source="{Binding ShownStudent.Image}"
+               HeightRequest="300"
+               WidthRequest="300"
+               Aspect="AspectFill"/>
+
+        <Label Text="{Binding ShownStudent.Name}"
+               FontSize="40"
+               TextColor="Indigo"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Label Text="{Binding ShownStudent.Age}"
+               FontSize="40"
+               TextColor="Indigo"
+               FontAttributes="Bold"
+              
+               HorizontalOptions="Center"/>
+        <Label Text="{Binding ShownStudent.Gender}"
+                           FontSize="40"
+                           TextColor="Indigo"
+               FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+
+        <DatePicker Date="{Binding ShownStudent.BirthDate}"
+                    HorizontalOptions="Center"/>
+
+        <Button Text="החלף סטודנט"
                 HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="ישראל ישראלי"
-                TextColor="MidnightBlue" />
+                BackgroundColor="Indigo"
+                Clicked="Button_Clicked"/>
 
-            <!--  גיל  -->
-            <Label
-                FontSize="24"
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                SemanticProperties.Description="Student age"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="16"
-                TextColor="MidnightBlue" />
-
-            <!--  תאריך לידה  -->
-            <DatePicker
-                Date="01/01/2000"
-                FontSize="24"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Student birth date"
-                TextColor="MidnightBlue" />
-
-            <!--  כתובת מייל  -->
-            <Label
-                FontSize="24"
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                SemanticProperties.Description="Student email address"
-                Text="joe@gmail.com"
-                TextColor="MidnightBlue" />
-
-            <!--  טלפון  -->
-            <Label
-                FontSize="24"
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center"
-                SemanticProperties.Description="Student phone number"
-                Text="050-1234567"
-                TextColor="MidnightBlue" />
-            <Button Text="עדכן תאריך לידה" />
-        </VerticalStackLayout>
-    </ScrollView>
+    </VerticalStackLayout>
 
 </ContentPage>
